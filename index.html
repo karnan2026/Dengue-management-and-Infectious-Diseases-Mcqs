@@ -423,6 +423,177 @@
   }
 
   :focus-visible{outline:2px solid var(--bact); outline-offset:2px;}
+
+  /* ---------- TOOLBAR ---------- */
+  .toolbar{
+    max-width:1040px;
+    margin:0 auto;
+    padding:0 24px 14px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+  .search-wrap{
+    position:relative;
+    flex:1 1 220px;
+    min-width:180px;
+  }
+  .search-wrap input{
+    width:100%;
+    background:var(--card);
+    border:1px solid var(--line);
+    color:var(--text);
+    padding:10px 14px 10px 34px;
+    border-radius:11px;
+    font-family:'Inter',sans-serif;
+    font-size:13.5px;
+  }
+  .search-wrap input::placeholder{color:var(--muted);}
+  .search-wrap .icon{
+    position:absolute; left:12px; top:50%; transform:translateY(-50%);
+    color:var(--muted); font-size:13px; pointer-events:none;
+  }
+  .tool-btn{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.03em;
+    border:1px solid var(--line);
+    background:var(--card);
+    color:var(--muted);
+    padding:9px 14px;
+    border-radius:999px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    transition:all .15s ease;
+    white-space:nowrap;
+  }
+  .tool-btn:hover{border-color:rgba(255,255,255,0.3); color:var(--text);}
+  .tool-btn.on{background:var(--bact-bg); border-color:var(--bact); color:var(--bact);}
+  .tool-btn.on-bad{background:rgba(248,113,113,0.12); border-color:var(--bad); color:var(--bad);}
+
+  /* auto-suggest bookmark banner on a missed question */
+  .miss-banner{
+    margin-top:14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+    padding:12px 14px;
+    border-radius:12px;
+    background:rgba(248,113,113,0.08);
+    border:1px dashed var(--bad);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    color:var(--muted);
+  }
+  .miss-bm-btn{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    font-weight:600;
+    background:var(--fun-bg);
+    border:1px solid var(--fun);
+    color:var(--fun);
+    padding:7px 14px;
+    border-radius:999px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:all .15s ease;
+  }
+  .miss-bm-btn:hover{background:var(--fun); color:var(--bg);}
+
+  /* bookmark star */
+  .bm-btn{
+    background:none;
+    border:1px solid var(--line);
+    color:var(--muted);
+    width:30px; height:30px;
+    border-radius:8px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:15px;
+    flex:none;
+    transition:all .15s ease;
+  }
+  .bm-btn:hover{border-color:var(--fun); color:var(--fun);}
+  .bm-btn.on{color:var(--fun); border-color:var(--fun); background:var(--fun-bg);}
+
+  /* ---------- JUMP GRID ---------- */
+  .grid-panel{
+    display:none;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:18px;
+    margin-bottom:20px;
+  }
+  .grid-panel.show{display:block;}
+  .grid-legend{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--muted);
+    margin-bottom:14px;
+  }
+  .grid-legend span{display:flex; align-items:center; gap:6px;}
+  .grid-legend .sw{width:9px;height:9px;border-radius:3px;display:inline-block;}
+  .grid-cells{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(38px,1fr));
+    gap:8px;
+  }
+  .grid-sections{
+    display:block;
+  }
+  .grid-section{margin-bottom:18px;}
+  .grid-section:last-child{margin-bottom:0;}
+  .grid-section-head{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    font-weight:600;
+    margin-bottom:10px;
+    padding-bottom:6px;
+    border-bottom:1px solid var(--line);
+  }
+  .grid-section-head .sw{width:9px;height:9px;border-radius:3px;flex:none;}
+  .grid-section-head .cnt{color:var(--muted); font-weight:400; margin-left:auto; text-transform:none; letter-spacing:0;}
+  .grid-cell{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    height:36px;
+    border-radius:8px;
+    border:1px solid var(--line);
+    background:var(--bg-2);
+    color:var(--muted);
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    transition:transform .1s ease;
+  }
+  .grid-cell:hover{transform:translateY(-2px);}
+  .grid-cell.correct{background:rgba(52,211,153,0.16); border-color:var(--good); color:var(--good);}
+  .grid-cell.incorrect{background:rgba(248,113,113,0.16); border-color:var(--bad); color:var(--bad);}
+  .grid-cell.current{outline:2px solid var(--text); outline-offset:1px;}
+  .grid-cell .bm-dot{
+    position:absolute; top:-3px; right:-3px;
+    width:8px;height:8px;border-radius:50%;
+    background:var(--fun);
+    border:1.5px solid var(--card);
+  }
 </style>
 </head>
 <body>
@@ -431,7 +602,7 @@
   <div class="eyebrow"><span class="dot"></span> INFECTIOUS DISEASE · CLINICAL PRACTICE QUESTIONS</div>
   <div class="colony-field" id="colonyField"></div>
   <h1>Infectious Disease<br><span>Clinical MCQ Bank</span></h1>
-  <p class="lead">Twenty case-style questions spanning bacterial, viral, fungal, mycobacterial, and parasitic infections — pick a colony, test yourself, read the reasoning.</p>
+  <p class="lead">503 case-style questions spanning bacterial, viral, fungal, mycobacterial, and parasitic infections — pick a colony, test yourself, read the reasoning.</p>
   <div class="stat-row">
     <div class="stat"><b id="statTotal">20</b><span>Questions</span></div>
     <div class="stat"><b id="statCats">5</b><span>Pathogen classes</span></div>
@@ -442,8 +613,30 @@
 
 <div class="filter-bar" id="filterBar"></div>
 
+<div class="toolbar">
+  <div class="search-wrap">
+    <span class="icon">&#9906;</span>
+    <input type="text" id="searchInput" placeholder="Search questions, options, keywords…">
+  </div>
+  <button class="tool-btn" id="bookmarkOnlyBtn" onclick="toggleBookmarkOnly()">&#9733; Bookmarked</button>
+  <button class="tool-btn" id="incorrectOnlyBtn" onclick="toggleIncorrectOnly()">&#10007; Incorrect only</button>
+  <button class="tool-btn" id="shuffleBtn" onclick="toggleShuffle()">&#8646; Shuffle</button>
+  <button class="tool-btn" id="gridBtn" onclick="toggleGrid()">&#9638; Jump grid</button>
+</div>
+
 <div class="quiz-wrap">
   <div class="progress-shell"><div class="progress-fill" id="progressFill"></div></div>
+
+  <div class="grid-panel" id="gridPanel">
+    <div class="grid-legend">
+      <span><span class="sw" style="background:var(--bg-2); border:1px solid var(--line);"></span>Unanswered</span>
+      <span><span class="sw" style="background:rgba(52,211,153,0.4);"></span>Correct</span>
+      <span><span class="sw" style="background:rgba(248,113,113,0.4);"></span>Incorrect</span>
+      <span><span class="sw" style="background:var(--fun);"></span>Bookmarked</span>
+    </div>
+    <div class="grid-sections" id="gridCells"></div>
+  </div>
+
   <div id="quizList"></div>
 
   <div class="pager" id="pagerBar">
@@ -4020,17 +4213,67 @@ for(let i=0;i<16;i++){
 }
 
 // ---------- state ----------
+const STORAGE_KEY = 'culturePlateState_v1';
 let activeFilter = 'all';
 let answered = {};      // global question index -> {chosen, correct}
+let bookmarked = {};    // global question index -> true
+let bookmarkOnly = false;
+let incorrectOnly = false;
+let shuffleOn = false;
+let shuffleOrder = [];  // shuffled array of all question indices
+let searchQuery = '';
 let pageIdx = 0;        // current position within the filtered list
+let gridOpen = false;
 const total = QUESTIONS.length;
 
 document.getElementById('statTotal').textContent = total;
 
+function saveState(){
+  try{
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      answered, bookmarked, activeFilter, bookmarkOnly, incorrectOnly, shuffleOn, shuffleOrder, pageIdx
+    }));
+  }catch(e){ /* storage unavailable — fail silently */ }
+}
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return;
+    const s = JSON.parse(raw);
+    if(s.answered) answered = s.answered;
+    if(s.bookmarked) bookmarked = s.bookmarked;
+    if(s.activeFilter) activeFilter = s.activeFilter;
+    if(typeof s.bookmarkOnly==='boolean') bookmarkOnly = s.bookmarkOnly;
+    if(typeof s.incorrectOnly==='boolean') incorrectOnly = s.incorrectOnly;
+    if(typeof s.shuffleOn==='boolean') shuffleOn = s.shuffleOn;
+    if(Array.isArray(s.shuffleOrder) && s.shuffleOrder.length===total) shuffleOrder = s.shuffleOrder;
+    if(typeof s.pageIdx==='number') pageIdx = s.pageIdx;
+  }catch(e){ /* corrupt/unavailable storage — start fresh */ }
+}
+
+function makeShuffleOrder(){
+  const arr = QUESTIONS.map((q,i)=>i);
+  for(let i=arr.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]] = [arr[j],arr[i]];
+  }
+  return arr;
+}
+
 function currentList(){
-  return activeFilter==='all'
-    ? QUESTIONS.map((q,i)=>i)
-    : QUESTIONS.map((q,i)=>i).filter(i=>QUESTIONS[i].cat===activeFilter);
+  const base = shuffleOn ? shuffleOrder : QUESTIONS.map((q,i)=>i);
+  return base.filter(i=>{
+    if(activeFilter!=='all' && QUESTIONS[i].cat!==activeFilter) return false;
+    if(bookmarkOnly && !bookmarked[i]) return false;
+    if(incorrectOnly && !(answered[i] && !answered[i].correct)) return false;
+    if(searchQuery){
+      const item = QUESTIONS[i];
+      const hay = (item.q + ' ' + item.options.join(' ')).toLowerCase();
+      if(!hay.includes(searchQuery)) return false;
+    }
+    return true;
+  });
 }
 
 // ---------- filter bar ----------
@@ -4039,7 +4282,7 @@ function makeFilterChip(key,label,color){
   const b = document.createElement('button');
   b.className = 'chip-btn' + (key===activeFilter?' active':'');
   b.innerHTML = `<span class="sw" style="background:${color}"></span>${label}`;
-  b.onclick = ()=>{ activeFilter=key; pageIdx=0; renderFilterBar(); renderQuiz(); };
+  b.onclick = ()=>{ activeFilter=key; pageIdx=0; renderFilterBar(); renderQuiz(); if(gridOpen) renderGrid(); saveState(); };
   return b;
 }
 function renderFilterBar(){
@@ -4048,7 +4291,7 @@ function renderFilterBar(){
   allBtn.className='chip-btn'+(activeFilter==='all'?' active':'');
   allBtn.style.background = activeFilter==='all' ? 'linear-gradient(95deg,var(--bact),var(--vir))' : '';
   allBtn.innerHTML = `<span class="sw" style="background:linear-gradient(95deg,var(--bact),var(--vir))"></span>All (${total})`;
-  allBtn.onclick = ()=>{ activeFilter='all'; pageIdx=0; renderFilterBar(); renderQuiz(); };
+  allBtn.onclick = ()=>{ activeFilter='all'; pageIdx=0; renderFilterBar(); renderQuiz(); if(gridOpen) renderGrid(); saveState(); };
   filterBar.appendChild(allBtn);
   Object.keys(CATS).forEach(key=>{
     const count = QUESTIONS.filter(q=>q.cat===key).length;
@@ -4079,7 +4322,15 @@ function renderQuiz(){
   const top = document.createElement('div');
   top.className='q-top';
   top.innerHTML = `<span class="q-num">QUESTION ${String(pageIdx+1).padStart(3,'0')} / ${String(list.length).padStart(3,'0')}</span>
-                    <span class="tag ${item.cat}">${CATS[item.cat].label}</span>`;
+                    <span style="display:flex; align-items:center; gap:8px;">
+                      <span class="tag ${item.cat}">${CATS[item.cat].label}</span>
+                    </span>`;
+  const bmBtn = document.createElement('button');
+  bmBtn.className = 'bm-btn' + (bookmarked[idx] ? ' on' : '');
+  bmBtn.innerHTML = '&#9733;';
+  bmBtn.title = bookmarked[idx] ? 'Remove bookmark' : 'Bookmark this question';
+  bmBtn.onclick = ()=> toggleBookmark(idx);
+  top.querySelector('span[style]').appendChild(bmBtn);
   card.appendChild(top);
 
   const qtext = document.createElement('p');
@@ -4126,11 +4377,11 @@ function updatePagerUI(list){
 }
 
 function goPrev(){
-  if(pageIdx>0){ pageIdx--; renderQuiz(); window.scrollTo({top:0, behavior:'smooth'}); }
+  if(pageIdx>0){ pageIdx--; renderQuiz(); if(gridOpen) renderGrid(); saveState(); window.scrollTo({top:0, behavior:'smooth'}); }
 }
 function goNext(){
   const list = currentList();
-  if(pageIdx < list.length-1){ pageIdx++; renderQuiz(); window.scrollTo({top:0, behavior:'smooth'}); }
+  if(pageIdx < list.length-1){ pageIdx++; renderQuiz(); if(gridOpen) renderGrid(); saveState(); window.scrollTo({top:0, behavior:'smooth'}); }
   else {
     const listAnsweredCount = list.filter(i=>answered.hasOwnProperty(i)).length;
     if(listAnsweredCount === list.length) showScore(list);
@@ -4143,6 +4394,8 @@ function jumpTo(){
   v = Math.max(1, Math.min(list.length, v));
   pageIdx = v-1;
   renderQuiz();
+  if(gridOpen) renderGrid();
+  saveState();
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
@@ -4155,6 +4408,100 @@ function selectAnswer(qIdx, optIdx, card){
   updateProgress();
   // refresh pager state (Next/See results button) now that this question is answered
   updatePagerUI(currentList());
+  if(gridOpen) renderGrid();
+  saveState();
+}
+
+function toggleBookmark(qIdx){
+  if(bookmarked[qIdx]) delete bookmarked[qIdx];
+  else bookmarked[qIdx] = true;
+  renderQuiz();
+  if(gridOpen) renderGrid();
+  saveState();
+}
+
+function toggleBookmarkOnly(){
+  bookmarkOnly = !bookmarkOnly;
+  pageIdx = 0;
+  document.getElementById('bookmarkOnlyBtn').classList.toggle('on', bookmarkOnly);
+  renderQuiz();
+  if(gridOpen) renderGrid();
+  saveState();
+}
+
+function toggleIncorrectOnly(){
+  incorrectOnly = !incorrectOnly;
+  pageIdx = 0;
+  document.getElementById('incorrectOnlyBtn').classList.toggle('on-bad', incorrectOnly);
+  renderQuiz();
+  if(gridOpen) renderGrid();
+  saveState();
+}
+
+function toggleShuffle(){
+  shuffleOn = !shuffleOn;
+  if(shuffleOn && shuffleOrder.length !== total) shuffleOrder = makeShuffleOrder();
+  pageIdx = 0;
+  document.getElementById('shuffleBtn').classList.toggle('on', shuffleOn);
+  renderQuiz();
+  if(gridOpen) renderGrid();
+  saveState();
+}
+
+function toggleGrid(){
+  gridOpen = !gridOpen;
+  document.getElementById('gridBtn').classList.toggle('on', gridOpen);
+  document.getElementById('gridPanel').classList.toggle('show', gridOpen);
+  if(gridOpen) renderGrid();
+}
+
+function renderGrid(){
+  const list = currentList();
+  const container = document.getElementById('gridCells');
+  container.innerHTML = '';
+
+  // group positions by category, preserving CATS display order
+  const byCat = {};
+  Object.keys(CATS).forEach(k=> byCat[k] = []);
+  list.forEach((qIdx, pos)=>{
+    byCat[QUESTIONS[qIdx].cat].push({qIdx, pos});
+  });
+
+  Object.keys(CATS).forEach(catKey=>{
+    const items = byCat[catKey];
+    if(items.length===0) return;
+
+    const section = document.createElement('div');
+    section.className = 'grid-section';
+
+    const head = document.createElement('div');
+    head.className = 'grid-section-head';
+    head.style.color = CATS[catKey].color;
+    head.innerHTML = `<span class="sw" style="background:${CATS[catKey].color}"></span>${CATS[catKey].label}<span class="cnt">${items.length}</span>`;
+    section.appendChild(head);
+
+    const grid = document.createElement('div');
+    grid.className = 'grid-cells';
+
+    items.forEach(({qIdx, pos})=>{
+      const btn = document.createElement('button');
+      let cls = 'grid-cell';
+      if(answered.hasOwnProperty(qIdx)) cls += answered[qIdx].correct ? ' correct' : ' incorrect';
+      if(pos===pageIdx) cls += ' current';
+      btn.className = cls;
+      btn.textContent = pos+1;
+      if(bookmarked[qIdx]){
+        const dot = document.createElement('span');
+        dot.className = 'bm-dot';
+        btn.appendChild(dot);
+      }
+      btn.onclick = ()=>{ pageIdx = pos; renderQuiz(); renderGrid(); saveState(); window.scrollTo({top:0, behavior:'smooth'}); };
+      grid.appendChild(btn);
+    });
+
+    section.appendChild(grid);
+    container.appendChild(section);
+  });
 }
 
 function lockCard(card, qIdx, chosenIdx){
@@ -4170,7 +4517,27 @@ function lockCard(card, qIdx, chosenIdx){
       btn.classList.add('dim');
     }
   });
-  document.getElementById('exp-'+qIdx).classList.add('show');
+  card.querySelector('.explain').classList.add('show');
+  renderMissBanner(card, qIdx);
+}
+
+function renderMissBanner(card, qIdx){
+  const existing = card.querySelector('.miss-banner');
+  if(existing) existing.remove();
+  const a = answered[qIdx];
+  if(a && !a.correct && !bookmarked[qIdx]){
+    const banner = document.createElement('div');
+    banner.className = 'miss-banner';
+    const label = document.createElement('span');
+    label.textContent = 'Missed this one — bookmark it for review?';
+    banner.appendChild(label);
+    const btn = document.createElement('button');
+    btn.className = 'miss-bm-btn';
+    btn.innerHTML = '&#9733; Bookmark';
+    btn.onclick = ()=> toggleBookmark(qIdx);
+    banner.appendChild(btn);
+    card.appendChild(banner);
+  }
 }
 
 function updateProgress(){
@@ -4211,10 +4578,32 @@ function restartQuiz(){
   document.getElementById('pagerBar').style.display='flex';
   updateProgress();
   renderQuiz();
+  if(gridOpen) renderGrid();
+  saveState();
   window.scrollTo({top:0, behavior:'smooth'});
 }
 
+// ---------- search ----------
+let searchDebounce;
+document.getElementById('searchInput').addEventListener('input', (e)=>{
+  clearTimeout(searchDebounce);
+  const val = e.target.value;
+  searchDebounce = setTimeout(()=>{
+    searchQuery = val.trim().toLowerCase();
+    pageIdx = 0;
+    renderQuiz();
+    if(gridOpen) renderGrid();
+  }, 200);
+});
+
+// ---------- init ----------
+loadState();
+document.getElementById('bookmarkOnlyBtn').classList.toggle('on', bookmarkOnly);
+document.getElementById('incorrectOnlyBtn').classList.toggle('on-bad', incorrectOnly);
+document.getElementById('shuffleBtn').classList.toggle('on', shuffleOn);
+if(shuffleOn && shuffleOrder.length !== total) shuffleOrder = makeShuffleOrder();
 renderFilterBar();
+updateProgress();
 renderQuiz();
 </script>
 
