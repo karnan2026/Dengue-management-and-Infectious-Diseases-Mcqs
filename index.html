@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clinical Quick Reference — Dengue Shock & Migraine | Karnan Physics ID Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#132a35;
+    --navy-deep:#0b1b23;
+    --teal:#0e7c7b;
+    --teal-light:#e6f4f3;
+    --amber:#c98a2b;
+    --red:#a83a32;
+    --paper:#f7f5f0;
+    --paper-card:#ffffff;
+    --ink:#1c2a2e;
+    --ink-soft:#5a6b6e;
+    --line:#dfe1d8;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--teal); color:#fff;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    background:linear-gradient(180deg,var(--navy) 0%, var(--navy-deep) 100%);
+    color:#f2f0ea;
+    padding:44px 24px 28px;
+    position:relative;
+    overflow:hidden;
+  }
+  header::after{
+    content:"";
+    position:absolute;
+    right:-60px; top:-60px;
+    width:260px; height:260px;
+    border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(14,124,123,0.55), rgba(14,124,123,0) 70%);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:#8fc9c5;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:14px;
+  }
+  .pulse-dot{
+    width:7px;height:7px;border-radius:50%;
+    background:#57c9b8;
+    box-shadow:0 0 0 0 rgba(87,201,184,.6);
+    animation:pulse 1.8s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(87,201,184,.55);}
+    70%{box-shadow:0 0 0 9px rgba(87,201,184,0);}
+    100%{box-shadow:0 0 0 0 rgba(87,201,184,0);}
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(28px,4.4vw,42px);
+    margin:0 0 8px;
+    letter-spacing:-0.01em;
+    max-width:720px;
+  }
+  header p.sub{
+    margin:0 0 26px;
+    color:#c3cdc9;
+    font-size:15px;
+    max-width:560px;
+    line-height:1.5;
+  }
+
+  /* ---------- SEARCH ---------- */
+  .search-wrap{
+    position:relative;
+    max-width:640px;
+  }
+  #search{
+    width:100%;
+    padding:15px 46px 15px 46px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,0.14);
+    background:rgba(255,255,255,0.07);
+    color:#f5f3ee;
+    font-size:15.5px;
+    font-family:'Inter',sans-serif;
+    outline:none;
+    transition:background .2s, border-color .2s;
+  }
+  #search::placeholder{color:#8b9c98;}
+  #search:focus{
+    background:rgba(255,255,255,0.12);
+    border-color:#57c9b8;
+  }
+  .search-icon{
+    position:absolute; left:16px; top:50%; transform:translateY(-50%);
+    width:17px; height:17px; color:#8fc9c5;
+  }
+  kbd{
+    position:absolute; right:12px; top:50%; transform:translateY(-50%);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:#9db3af;
+    border:1px solid rgba(255,255,255,0.18);
+    padding:2px 6px;
+    border-radius:5px;
+    background:rgba(0,0,0,0.15);
+  }
+
+  /* ---------- FILTER CHIPS ---------- */
+  .chips{
+    display:flex; flex-wrap:wrap; gap:8px;
+    margin-top:18px;
+  }
+  .chip{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    padding:6px 12px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,0.18);
+    color:#cfe6e2;
+    background:transparent;
+    cursor:pointer;
+    transition:all .15s;
+    letter-spacing:.02em;
+  }
+  .chip:hover{border-color:#57c9b8; color:#fff;}
+  .chip.active{
+    background:#57c9b8;
+    border-color:#57c9b8;
+    color:#0b1b23;
+    font-weight:600;
+  }
+
+  /* ---------- MAIN ---------- */
+  main{
+    max-width:920px;
+    margin:0 auto;
+    padding:30px 24px 90px;
+  }
+  .meta-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:18px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    color:var(--ink-soft);
+  }
+  #count-label b{color:var(--teal);}
+
+  .card{
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    border-left:4px solid var(--teal);
+    border-radius:10px;
+    padding:22px 24px;
+    margin-bottom:16px;
+    transition:box-shadow .18s, transform .18s;
+  }
+  .card:hover{ box-shadow:0 6px 22px rgba(19,42,53,0.07); }
+  .card.hidden{ display:none; }
+  .card.cat-pitfall{ border-left-color:var(--red); }
+  .card.cat-case{ border-left-color:var(--amber); }
+
+  .card-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    gap:12px; margin-bottom:10px;
+  }
+  .card h2{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:19px;
+    margin:0;
+    color:var(--navy);
+  }
+  .tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:#fff;
+    background:var(--teal);
+    padding:3px 9px;
+    border-radius:5px;
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+  .cat-pitfall .tag{background:var(--red);}
+  .cat-case .tag{background:var(--amber); color:#332205;}
+
+  .card-body{ font-size:14.5px; line-height:1.65; color:var(--ink); }
+  .card-body p{ margin:0 0 10px; }
+  .card-body ul{ margin:6px 0 10px; padding-left:20px; }
+  .card-body li{ margin-bottom:5px; }
+  .card-body strong{ color:var(--navy); }
+
+  table.mini{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+    margin:10px 0;
+  }
+  table.mini th, table.mini td{
+    border:1px solid var(--line);
+    padding:7px 10px;
+    text-align:left;
+    vertical-align:top;
+  }
+  table.mini th{
+    background:var(--teal-light);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    color:var(--navy);
+  }
+  table.mini tr:nth-child(even) td{ background:#fbfbf8; }
+
+  .flow-step{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    background:var(--teal-light);
+    border-radius:6px;
+    padding:8px 12px;
+    margin:6px 0;
+    color:var(--navy);
+  }
+  .flow-branch{
+    padding-left:18px;
+    border-left:2px solid var(--line);
+    margin:8px 0 8px 8px;
+  }
+  mark{
+    background:#ffe27a;
+    color:#2b2200;
+    padding:0 2px;
+    border-radius:2px;
+  }
+  .no-results{
+    text-align:center;
+    padding:60px 20px;
+    color:var(--ink-soft);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13.5px;
+  }
+  .topic-chips{
+    display:flex; flex-wrap:wrap; gap:8px;
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px dashed rgba(255,255,255,0.14);
+  }
+  .topic-chip{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    padding:6px 14px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,0.18);
+    color:#cfe6e2;
+    background:transparent;
+    cursor:pointer;
+    transition:all .15s;
+    letter-spacing:.02em;
+    font-weight:600;
+  }
+  .topic-chip:hover{border-color:#57c9b8; color:#fff;}
+  .topic-chip.active{
+    background:#fff;
+    border-color:#fff;
+    color:var(--navy);
+  }
+  .section-heading{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:22px;
+    color:var(--navy);
+    margin:30px 0 14px;
+    padding-bottom:8px;
+    border-bottom:2px solid var(--navy);
+  }
+  .section-heading:first-child{ margin-top:0; }
+  .section-heading .sec-sub{
+    display:block;
+    font-family:'Inter',sans-serif;
+    font-weight:400;
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-top:4px;
+  }
+  .card.cat-migraine-emergency{ border-left-color:var(--red); }
+  footer{
+    text-align:center;
+    padding:26px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- HOME SCREEN ---------- */
+  .home-wrap{
+    min-height:100vh;
+    background:linear-gradient(180deg,var(--navy) 0%, var(--navy-deep) 100%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:40px 24px;
+    text-align:center;
+  }
+  .home-wrap .eyebrow{ justify-content:center; }
+  .home-wrap h1{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    color:#f2f0ea;
+    font-size:clamp(28px,4.4vw,40px);
+    margin:0 0 10px;
+  }
+  .home-wrap p.sub{
+    color:#c3cdc9;
+    font-size:15px;
+    max-width:480px;
+    margin:0 0 40px;
+    line-height:1.55;
+  }
+  .home-tiles{
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+    justify-content:center;
+    max-width:760px;
+  }
+  .home-tile{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:14px;
+    padding:36px 30px;
+    width:280px;
+    cursor:pointer;
+    text-align:left;
+    transition:transform .18s, border-color .18s, background .18s;
+  }
+  .home-tile:hover{
+    transform:translateY(-4px);
+    border-color:#57c9b8;
+    background:rgba(255,255,255,0.07);
+  }
+  .home-tile .tile-icon{
+    width:40px; height:40px;
+    border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:18px;
+    font-size:20px;
+  }
+  .home-tile.tile-dengue .tile-icon{ background:rgba(14,124,123,0.25); color:#57c9b8; }
+  .home-tile.tile-migraine .tile-icon{ background:rgba(200,80,60,0.22); color:#e8917d; }
+  .home-tile h3{
+    font-family:'Fraunces',serif;
+    font-size:20px;
+    color:#f2f0ea;
+    margin:0 0 8px;
+  }
+  .home-tile p{
+    font-size:13.5px;
+    color:#9db3af;
+    line-height:1.5;
+    margin:0 0 14px;
+  }
+  .home-tile .tile-count{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    color:#57c9b8;
+    letter-spacing:.05em;
+  }
+  .back-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.2);
+    color:#cfe6e2;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    padding:7px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-bottom:18px;
+    transition:all .15s;
+  }
+  .back-btn:hover{ border-color:#57c9b8; color:#fff; }
+  #referenceView{ display:none; }
+</style>
+</head>
+<body>
+
+<div class="home-wrap" id="homeScreen">
+  <div class="eyebrow"><span class="pulse-dot"></span>CLINICAL QUICK REFERENCE</div>
+  <h1>Clinical Reference Library</h1>
+  <p class="sub">Choose a topic to open its searchable reference — protocols, case studies, drug tables, and pitfalls.</p>
+  <div class="home-tiles">
+    <div class="home-tile tile-dengue" onclick="openTopic('dengue')">
+      <div class="tile-icon">🩸</div>
+      <h3>Dengue Shock</h3>
+      <p>Fluid resuscitation protocols, case studies, transfusion criteria, and pitfalls from the WHO/Stanley Medical College series.</p>
+      <div class="tile-count" id="dengueCount">25 entries</div>
+    </div>
+    <div class="home-tile tile-migraine" onclick="openTopic('migraine')">
+      <div class="tile-icon">🧠</div>
+      <h3>Migraine &amp; Headache</h3>
+      <p>Diagnostics, emergency care, acute therapy, prophylaxis, and patient counselling from the undergraduate lecture series.</p>
+      <div class="tile-count" id="migraineCount">28 entries</div>
+    </div>
+  </div>
+</div>
+
+<div id="referenceView">
+<header>
+  <button class="back-btn" onclick="goHome()">← All Topics</button>
+  <div class="eyebrow"><span class="pulse-dot"></span>CLINICAL QUICK REFERENCE</div>
+  <h1 id="topicTitle">Dengue Shock Management</h1>
+  <p class="sub" id="topicSub">Searchable field reference.</p>
+
+  <div class="search-wrap">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="search" placeholder="Search…" autocomplete="off">
+    <kbd>/</kbd>
+  </div>
+
+  <div class="chips" id="chips">
+    <button class="chip active" data-filter="all">All Categories</button>
+    <button class="chip" data-filter="flowchart" data-topic="dengue">Flowcharts</button>
+    <button class="chip" data-filter="case" data-topic="dengue">Case Studies</button>
+    <button class="chip" data-filter="fluids" data-topic="dengue">Fluids &amp; Transfusion</button>
+    <button class="chip" data-filter="monitoring" data-topic="dengue">Monitoring &amp; Goals</button>
+    <button class="chip" data-filter="complications" data-topic="dengue">Complications</button>
+    <button class="chip" data-filter="pitfall" data-topic="dengue">Pitfalls</button>
+    <button class="chip" data-filter="diagnostics" data-topic="migraine">Diagnostics</button>
+    <button class="chip" data-filter="emergency" data-topic="migraine">Emergency Care</button>
+    <button class="chip" data-filter="acute-therapy" data-topic="migraine">Acute Therapy</button>
+    <button class="chip" data-filter="prophylaxis" data-topic="migraine">Prophylaxis</button>
+    <button class="chip" data-filter="counselling" data-topic="migraine">Counselling</button>
+  </div>
+</header>
+
+<main>
+  <div class="meta-row">
+    <span id="count-label"><b id="count-num">0</b> of <span id="total-num">0</span> entries</span>
+    <span id="topicLabel">Dengue Shock</span>
+  </div>
+
+  <div id="results"></div>
+  <div class="no-results" id="no-results" style="display:none;">No matches — try a different term.</div>
+</main>
+
+<footer>Source: Prof. Dr. Chandrasekar S · Stanley Medical College — compiled for personal reference</footer>
+</div>
+
+
+<script>
+const data = [
+{
+  title:"Special Populations — Challenges & Measures",
+  cats:["monitoring","complications"],
+  html:`<table class="mini"><tr><th>Condition</th><th>Challenges</th><th>Measures</th></tr>
+  <tr><td>Chronic Kidney Disease</td><td>Ambiguity of symptoms due to uremia &amp; volume overload, platelet dysfunction, metabolic acidosis; low baseline hematocrit and platelet count</td><td>Fluids guided by IVC, central venous pressure monitoring</td></tr>
+  <tr><td>Coronary Artery Disease ± failure</td><td>Precipitation of cardiac decompensation; polycythemia</td><td>Revised hypotension cut-off: fall in MAP by 40 mmHg</td></tr>
+  <tr><td>Hypertension</td><td>"Mild" hypotension may be profound; effect of drugs on heart rate</td><td>Timely withholding &amp; reintroduction of Beta-blockers, CCBs, Diuretics as applicable</td></tr>
+  <tr><td>Hyperglycemia</td><td>Septic shock/DKA; osmotic diuresis</td><td>Urine output not reliable for assessing clinical improvement</td></tr>
+  <tr><td>Hemolytic Anemias</td><td>Precipitation of hemolysis; suppression of reticulocytosis</td><td>Isotonic dextrose fluids to maintain euglycemia</td></tr>
+  <tr><td>Elderly</td><td>Fever, rash uncommon; prone to GI bleed, microhematuria, concurrent bacteremia, renal failure, pleural effusion</td><td>Avoidance of subcutaneous insulin/Metformin</td></tr>
+  </table>`
+},
+{
+  title:"Severe Dengue — Decompensated/Hypotensive Shock (SBP < 90 mmHg)",
+  cats:["flowchart"],
+  html:`<div class="flow-step">Start isotonic crystalloid: rapid bolus 10–20 mL/kg over 15–30 min (500 mL max)</div>
+  <p><strong>Improvement?</strong> (BP, pulse pressure, Hct, urine output, capillary refill, pulse rate)</p>
+  <div class="flow-branch"><strong>YES</strong> → reduce gradually: 5–7 mL/kg/h (1–2h) → 3–5 mL/kg/h (2–4h) → 2–3 mL/kg/h (2–4h) → stop IV fluids at 24–48 hours</div>
+  <div class="flow-branch"><strong>NO</strong> → check Hct:
+    <ul>
+      <li>Hct &gt; 45% (persistent capillary leakage) → 2nd rapid bolus 10–20 mL/kg over 15–30 min; if no improvement, give 3rd rapid bolus</li>
+      <li>Hct &lt; 45% (suspect severe overt bleed, check Hb) → blood transfusion (10 mL/kg whole blood / 5 mL/kg packed RBC)</li>
+    </ul>
+  </div>
+  <p>If still no improvement: determine cardiogenic/septic shock, evaluate metabolic cause &amp; organ dysfunction, evaluate concomitant conditions, evaluate persistent acidosis/hidden hemorrhage, give additional boluses per response, manage preferably in ICU.</p>`
+},
+{
+  title:"Dengue with Warning Signs — Flowchart",
+  cats:["flowchart"],
+  html:`<p>Systolic pressure maintained with signs of reduced perfusion, high Hct (≥20% rise from baseline).</p>
+  <div class="flow-step">Start isotonic crystalloid: 7–10 mL/kg for 1 hour</div>
+  <p><strong>Improvement?</strong></p>
+  <div class="flow-branch"><strong>YES</strong> → reduce gradually: 5–7 → 3–5 → 2–3 mL/kg/h → stop IV fluids at 24–48 hours</div>
+  <div class="flow-branch"><strong>NO</strong> → check Hct:
+    <ul>
+      <li>Hct &gt; 45% → IV crystalloid/colloid (10 mL/kg for 1h)</li>
+      <li>Hct &lt; 45% → blood transfusion (10 mL/kg whole blood / 5 mL/kg packed RBC)</li>
+    </ul>
+  </div>
+  <p>If improving → reduce to 7–10 mL/kg/h for 1–2h. If not → refractory hypotension, consider inotropes → manage as severe dengue with decompensated shock (Group C).</p>`
+},
+{
+  title:"Resuscitation Fluids: Crystalloids vs Colloids",
+  cats:["fluids"],
+  html:`<p><strong>Isotonic Crystalloids (First Line):</strong></p>
+  <ul>
+    <li><strong>Ringer's Lactate / Plasmalyte:</strong> balanced salt solutions preferred, avoids hyperchloremic metabolic acidosis</li>
+    <li><strong>0.9% Normal Saline:</strong> acceptable, but large volumes (&gt;40 mL/kg) cause hyperchloremia and renal vasoconstriction</li>
+  </ul>
+  <p><strong>Colloids (Second Line / Refractory Shock):</strong></p>
+  <ul><li><strong>Dextran 40 / 10% Pentastarch / 5% Albumin:</strong> indicated when shock persists despite 20–30 mL/kg crystalloid boluses with high Hct — higher intravascular oncotic pull</li></ul>`
+},
+{
+  title:"Case 2: Colloid Resuscitation Protocol",
+  cats:["case","fluids"],
+  html:`<p><strong>Colloid Rescue Therapy (Refractory Shock):</strong> switched to 10% Dextran 40 / 5% Albumin at 10 mL/kg (500 mL) over 30 min. Oncotic pull retains fluid inside leaky capillaries better than crystalloid alone. Outcome: BP stabilized to 100/70 mmHg, pulse 98 bpm, Hct dropped to 44%.</p>
+  <p><strong>Post-Colloid Maintenance:</strong> reverted to Ringer's Lactate 7 mL/kg/h (2h) → 5 mL/kg/h (4h) → 2 mL/kg/h (12h). ScvO2 maintained &gt;70%, lactate cleared 4.2 → 1.1 mmol/L. Total fluid: 3,100 mL over 30h, no pulmonary complications.</p>`
+},
+{
+  title:"Principles of Fluid Resuscitation — The Golden Rules",
+  cats:["fluids","monitoring"],
+  html:`<p><strong>24–48 hours</strong> — maximum IV fluid duration.</p>
+  <ol>
+    <li><strong>Minimum Necessary Fluid:</strong> maintain organ perfusion (UOP &gt;0.5 mL/kg/h) and systolic BP — NOT to restore normal hematocrit or platelet count</li>
+    <li><strong>Dynamic Titration:</strong> revise rates 1–2 hourly based on vitals, pulse pressure, serial micro-hematocrit</li>
+    <li><strong>Strict Timed Termination:</strong> plasma leakage abates spontaneously after 24–48h. Continued fluid beyond this leads to lethal pulmonary edema</li>
+  </ol>`
+},
+{
+  title:"Common Errors / Pitfalls",
+  cats:["pitfall"],
+  html:`<ul>
+  <li><strong>Transfusing Platelets for Numbers:</strong> prophylactic transfusion for counts &lt;20,000/mm³ without bleeding increases fluid overload without clinical benefit</li>
+  <li><strong>Using Hypotonic Fluids:</strong> 0.45% Saline or 5% Dextrose causes rapid fluid shift into interstitial space, accelerating ascites/edema</li>
+  <li><strong>Continuing Fluid Beyond 48 Hours:</strong> failing to recognize recovery phase leads to fatal iatrogenic pulmonary edema</li>
+  <li><strong>Ignoring Narrow Pulse Pressure:</strong> waiting for systolic BP &lt;90 mmHg misses compensated shock. Pulse pressure ≤20 mmHg is significant</li>
+  </ul>`
+},
+{
+  title:"Platelet Transfusion — Evidence",
+  cats:["fluids","pitfall"],
+  html:`<p>Prophylactic platelet transfusion delayed recovery of patients in terms of platelet count increment and time to discharge.<br><em>Prashantha B et al. Indian J Hematol Blood Transfus 2014;30:126-9</em></p>
+  <p>Patients receiving prophylactic platelet transfusion had a significantly higher risk of developing pulmonary oedema.<br><em>Lum LC. J Pediatr 2003;143:682-4</em></p>`
+},
+{
+  title:"Transfusion — WHO Recommendations",
+  cats:["fluids"],
+  html:`<p>Platelet transfusion indicated when platelet count &lt;10,000 cells/mm³.</p>
+  <table class="mini"><tr><th>Component</th><th>WHO Recommendation</th></tr>
+  <tr><td>Platelet</td><td>Persistent uncontrolled bleeding after shock with corrected coagulation factors, thrombocytopenia, bleeding time 1.5× normal. For C-section/emergency surgery: &gt;50,000/mm³; eye surgery/neurosurgery: &gt;100,000/mm³</td></tr>
+  <tr><td>Packed Red Cell (PRC)</td><td>Give as soon as severe bleeding suspected/recognised. Sudden Hct drop without improvement indicates possible major bleeding — cross-match &amp; transfuse 5–10 mL/kg</td></tr>
+  <tr><td>Fresh Frozen Plasma (FFP)</td><td>Fibrinogen &gt;100 mg, PT/aPTT &gt;1.5× reference → transfuse FFP 10 mL/kg within 30 min</td></tr>
+  </table>`
+},
+{
+  title:"Dengue & The Heart",
+  cats:["complications"],
+  html:`<ul>
+  <li>Pericardial effusions, myocarditis, atrioventricular block, ectopic beats can occur</li>
+  <li>Dengue myocarditis usually resolves with supportive care but can result in death if not promptly diagnosed. Definitive diagnosis by cardiac MRI</li>
+  </ul>`
+},
+{
+  title:"Case 6: Dengue Shock in Morbid Obesity",
+  cats:["case","fluids"],
+  html:`<p>38-year-old male, actual weight 110 kg, height 170 cm. Ideal Body Weight (IBW) = <strong>66 kg</strong>.</p>
+  <p><strong>Avoid Weight-Based Fluid Toxicity:</strong> resuscitating at 10 mL/kg/h using actual weight would give 1,100 mL/h — causing rapid pulmonary edema.</p>
+  <p><strong>Correct Protocol:</strong> dose at 10 mL/kg/h based on IBW (66 kg) = 660 mL/h bolus.</p>
+  <p><strong>Result:</strong> shock reversed with total 24h fluid of 2,800 mL, no respiratory distress.</p>`
+},
+{
+  title:"Case 1: Step-Down Resuscitation Timeline",
+  cats:["case"],
+  html:`<table class="mini"><tr><th>Time</th><th>Event</th></tr>
+  <tr><td>0h (Bolus)</td><td>10 mL/kg/h RL over 1h (600 mL). BP improved to 110/80 mmHg, pulse 104 bpm</td></tr>
+  <tr><td>2h (Step-Down)</td><td>Reduced to 7 mL/kg/h for 2h. Hct dropped 50%→45%. CRT &lt;2 sec</td></tr>
+  <tr><td>6h (Maintenance)</td><td>Reduced to 3 mL/kg/h. UOP increased to 1.2 mL/kg/h. Hct 42%</td></tr>
+  <tr><td>24h (Termination)</td><td>IV fluids stopped, oral tolerated. Total IV fluid: 2,450 mL (40.8 mL/kg). Discharged Day 8</td></tr>
+  </table>`
+},
+{
+  title:"Differentiating Dengue Shock from Septic Shock",
+  cats:["monitoring"],
+  html:`<table class="mini"><tr><th>Parameter</th><th>Dengue Shock</th><th>Septic Shock</th></tr>
+  <tr><td>Temperature</td><td>After defervescence; often subnormal/normal; may be high with HLH</td><td>Usually high; may be subnormal in late/decompensated stage</td></tr>
+  <tr><td>Pulse</td><td>Small/weak volume, narrowed pulse pressure, cold extremities</td><td>Bounding pulse, widened pulse pressure, warm extremities (early)</td></tr>
+  <tr><td>Full blood count</td><td>Usually leukopenic &amp; thrombocytopenic; leukocytosis if active bleeding</td><td>Usually leukocytosis; could be leukopenic/thrombocytopenic</td></tr>
+  <tr><td>CRP</td><td>Normal or mildly elevated</td><td>Markedly elevated</td></tr>
+  </table>`
+},
+{
+  title:"Adequate Fluid Therapy — Endpoints",
+  cats:["monitoring"],
+  html:`<ul>
+  <li>Capillary refill 2–3 seconds</li><li>Normal heart rate</li><li>Normal blood pressure</li>
+  <li>Normal pulse pressure</li><li>Urine ≥0.5 mL/kg/hr</li><li>HCT to normal</li><li>Improving acid-base</li>
+  </ul>`
+},
+{
+  title:"Goals of Intensive Care",
+  cats:["monitoring"],
+  html:`<ul>
+  <li>Adequate oxygenation/ventilation — near-normal pH ~7.35</li>
+  <li>SBP more than 100 mmHg</li>
+  <li>Urine output above ~0.5 mL/kg/hour</li>
+  <li>CRFT less than 2 sec</li>
+  <li>Keep pulse rate below 100/min</li>
+  <li>Pulse pressure above 30 mmHg</li>
+  </ul>`
+},
+{
+  title:"Suspect Bleeding — When to Consider",
+  cats:["monitoring","complications"],
+  html:`<ul>
+  <li>Persistent/severe overt bleeding with unstable hemodynamics, regardless of hematocrit</li>
+  <li>Decrease in hematocrit after fluid boluses with unstable hemodynamic status</li>
+  <li>Refractory shock failing to respond to 40–60 mL/kg fluid resuscitation</li>
+  <li>Hypotensive shock with inappropriately low/normal hematocrit</li>
+  <li>Persistent/worsening metabolic acidosis with well-maintained systolic BP, especially with severe abdominal tenderness/distension</li>
+  </ul>`
+},
+{
+  title:"Critical Phase Checklist",
+  cats:["monitoring"],
+  html:`<ol>
+  <li><strong>Vital Signs &amp; CRT:</strong> hourly monitoring of BP, pulse pressure, HR, CRT</li>
+  <li><strong>Serial Hematocrit:</strong> 4-hourly in warning signs, 1–2 hourly in shock. Plotted on bedside trend chart</li>
+  <li><strong>Strict Fluid Balance:</strong> urine output 2–4 hourly (target &gt;0.5 mL/kg/h)</li>
+  <li><strong>Warning Sign Audits:</strong> continuous vigilance for abdominal pain, vomiting, dyspnea</li>
+  </ol>`
+},
+{
+  title:"Case 7: Recovery Phase Reabsorption",
+  cats:["case"],
+  html:`<p>16-year-old male, Day 8 of dengue, convalescent stage. Hemodynamically stable, wide pulse pressure, confluent rash with islands of normal skin.</p>
+  <ul>
+  <li><strong>Spontaneous Diuresis:</strong> urine output increased to 3.5 mL/kg/h without diuretics as extravasated plasma returned to intravascular space</li>
+  <li><strong>Hematocrit Drop:</strong> 44% → 31% due to physiological hemodilution — NOT bleeding</li>
+  <li><strong>Action:</strong> IV fluids stopped completely, light diet, discharged in excellent health</li>
+  </ul>`
+},
+{
+  title:"Case 3: Blood Transfusion Protocol",
+  cats:["case","fluids"],
+  html:`<table class="mini"><tr><th>Parameter</th><th>Pre-Transfusion</th><th>Target</th><th>Intervention</th><th>Outcome</th></tr>
+  <tr><td>Hb/Hct</td><td>9.2 g/dL / 28%</td><td>Hct ~35–40%</td><td>PRBC 10 mL/kg (650 mL)</td><td>Hct 36%, BP 110/72 mmHg</td></tr>
+  <tr><td>Platelets</td><td>12,000/mm³</td><td>Hemostasis</td><td>Transfused only for active major GI bleeding</td><td>Bleeding stopped; platelets 32,000/mm³</td></tr>
+  <tr><td>Coagulation</td><td>INR 1.8, APTT 54s</td><td>INR &lt;1.5</td><td>FFP 15 mL/kg (4 units)</td><td>INR corrected to 1.3</td></tr>
+  <tr><td>Hemodynamics</td><td>BP 82/56, HR 135</td><td>BP &gt;100/70</td><td>Crystalloid reduced to 2 mL/kg/h</td><td>Lactate cleared; successful recovery</td></tr>
+  </table>
+  <p><strong>Takeaway:</strong> do NOT wait for hemoglobin to fall below 7 g/dL in severe dengue shock. Transfuse PRBC early if Hct drops without clinical improvement.</p>`
+},
+{
+  title:"Fluid Overload in Dengue (Major Iatrogenic Complication)",
+  cats:["complications","pitfall"],
+  html:`<p><strong>Causes:</strong> excessive/prolonged IV fluid (&gt;48h), continuing fluid when reabsorption has begun, or misdiagnosing severe bleeding as refractory plasma leakage.</p>
+  <p><strong>Early Signs:</strong> respiratory distress, tachypnea, intercostal retractions, pleural effusion (right &gt; left), ascites, facial edema.</p>
+  <p><strong>Late Signs:</strong> pulmonary edema, pink frothy sputum, severe hypoxia, acute abdominal compartment syndrome.</p>
+  <p><strong>Action:</strong> discontinue IV fluids immediately; IV Furosemide (0.5–1 mg/kg) if hemodynamically stable.</p>`
+},
+{
+  title:"CNS & GIT Involvement",
+  cats:["complications"],
+  html:`<ul>
+  <li>Altered sensorium may be due to decreased cerebral perfusion, hypoglycemia, hyponatremia, or direct CNS invasion by the virus</li>
+  <li>Viral encephalitis can be proven by CSF analysis</li>
+  <li>Transaminitis occurs</li>
+  <li>In cirrhosis/alcoholic liver disease, severe hepatic impairment can cause hepatic encephalopathy, hypoglycemia, and worsening acidosis</li>
+  </ul>`
+},
+{
+  title:"Expanded Dengue Syndrome — Organ Involvement",
+  cats:["complications"],
+  html:`<table class="mini"><tr><th>System</th><th>Unusual/Atypical Manifestations</th></tr>
+  <tr><td>CNS</td><td>Encephalopathy, encephalitis, febrile seizures, intracranial bleed</td></tr>
+  <tr><td>GI</td><td>Acute hepatitis/fulminant hepatic failure, cholecystitis, cholangitis, acute pancreatitis</td></tr>
+  <tr><td>Renal</td><td>Acute renal failure, hemolytic uremic syndrome, acute tubular necrosis</td></tr>
+  <tr><td>Cardiac</td><td>Arrhythmia, cardiomyopathy, myocarditis, pericardial effusion</td></tr>
+  <tr><td>Respiratory</td><td>Pulmonary oedema, ARDS, pulmonary hemorrhage, pleural effusion</td></tr>
+  <tr><td>Eye</td><td>Conjunctival bleed, macular hemorrhage, visual impairment, optic neuritis</td></tr>
+  </table>`
+},
+{
+  title:"Criteria for Discharge",
+  cats:["monitoring"],
+  html:`<p>All of the following must be present:</p>
+  <p><strong>Clinical:</strong></p>
+  <ul><li>Afebrile for 48 hours</li><li>Improvement in clinical status (appetite, vitals, U/O)</li><li>Minimum 2–3 days after recovery from shock</li></ul>
+  <p><strong>Laboratory:</strong></p>
+  <ul><li>Increasing trend of platelet count above 50,000</li><li>Stable hematocrit without IV fluids</li></ul>`
+},
+{
+  title:"Role of Vasopressors & Inotropes",
+  cats:["fluids","complications"],
+  html:`<p>Limited to: (i) temporary measure to prevent life-threatening hypotension in dengue shock, (ii) during induction for intubation.</p>
+  <ul>
+  <li>Recommended vasopressor: <strong>dopamine</strong></li>
+  <li><strong>Dobutamine</strong> recommended in cardiogenic shock due to myocarditis or ischemic heart disease</li>
+  <li>Concomitant septic shock: dopamine or norepinephrine</li>
+  </ul>
+  <p>⚠️ Vasopressors, by further increasing peripheral vascular resistance, exacerbate tissue hypoxia and lactic acidosis if volume is not restored.</p>`
+},
+{
+  title:"Metabolic / Electrolyte Abnormalities",
+  cats:["complications","monitoring"],
+  html:`<table class="mini"><tr><th>Abnormality</th><th>Causes</th></tr>
+  <tr><td>Metabolic Acidosis — bicarbonate only if pH &lt;7.3 &amp; HCO3 &lt;15 mmol/L (50 mL of 8.4% NaHCO3 IV)</td><td>Hypovolemia/initial shock; profound/prolonged shock; excessive normal saline infusion</td></tr>
+  <tr><td>Hyperglycemia — osmotic diuresis worsens shock, false impression of adequate urine output</td><td>Neuroendocrine stress response; diabetes mellitus; large glucose-fluid quantities</td></tr>
+  <tr><td>Hypoglycemia — seizures, mental confusion, unexplained tachycardia</td><td>Starvation; OHAs; liver impairment</td></tr>
+  <tr><td>Hyponatremia</td><td>GI loss; hypotonic solutions</td></tr>
+  <tr><td>Hyperkalemia</td><td>Severe metabolic acidosis; renal failure</td></tr>
+  <tr><td>Hypokalemia</td><td>GI loss; hypercortisolism</td></tr>
+  <tr><td>Hypocalcemia — often under-recognised in severe leakage (~10%); treat with calcium gluconate 10 mL over 10 min</td><td>Blood transfusions; sodium bicarbonate use</td></tr>
+  </table>`
+},
+
+/* ============ MIGRAINE & HEADACHE ============ */
+
+{
+  title:"SNNOOP10 — Red Flags in Headache",
+  topic:"migraine",
+  cats:["diagnostics"],
+  html:`<p>Warning features prompting investigation for secondary headache:</p>
+  <ul>
+  <li><strong>S</strong>ystemic symptoms — fever, weight loss</li>
+  <li><strong>S</strong>ystemic disease — malignancy, HIV, immunosuppression</li>
+  <li><strong>N</strong>eurological deficit — weakness, altered sensorium, seizure, diplopia</li>
+  <li><strong>N</strong>ew/sudden onset — thunderclap headache</li>
+  <li><strong>O</strong>lder age — new headache after ~50 years</li>
+  <li><strong>P</strong>attern change — progressively worsening or different headache</li>
+  <li>Positional headache</li>
+  <li>Precipitated by coughing, exertion, or Valsalva</li>
+  <li>Papilloedema</li>
+  <li>Pregnancy or puerperium</li>
+  <li>Post-traumatic onset</li>
+  <li>Painful eye with autonomic symptoms</li>
+  <li>New headache in a patient on anticoagulants</li>
+  </ul>
+  <p>Routine neuroimaging is unnecessary when history is typical of primary headache, exam is normal, and no red flags are present.</p>`
+},
+{
+  title:"Choosing Investigations in Headache",
+  topic:"migraine",
+  cats:["diagnostics"],
+  html:`<p><strong>CBC:</strong> fever/infection, anaemia, suspected temporal arteritis, systemic inflammatory disease, thrombocytopenia before LP.</p>
+  <p><strong>ESR &amp; CRP:</strong> new headache after 50, scalp tenderness, jaw claudication, visual symptoms, suspected giant-cell arteritis. Normal results don't fully exclude GCA if suspicion is high.</p>
+  <p><strong>Blood glucose:</strong> altered sensorium, diabetics, suspected hypo/hyperglycaemic emergency.</p>
+  <p><strong>Renal/liver function:</strong> suspected metabolic encephalopathy, contrast imaging planned, certain acute/prophylactic drugs considered.</p>
+  <p><strong>Pregnancy test:</strong> reproductive age, before radiation/contrast, before teratogenic medication.</p>
+  <p><strong>Toxicology/carboxyhaemoglobin:</strong> multiple household members affected, possible CO exposure, suspected intoxication/withdrawal.</p>`
+},
+{
+  title:"Neuroimaging Choices in Headache",
+  topic:"migraine",
+  cats:["diagnostics"],
+  html:`<p><strong>Non-contrast CT head</strong> — best initial test for: thunderclap headache, suspected intracranial haemorrhage, acute head injury, sudden headache with reduced consciousness, acute focal deficit needing rapid imaging, suspected mass effect before LP.</p>
+  <p><strong>CT angiography</strong> — suspected intracranial aneurysm, SAH, cervical/intracranial arterial dissection, reversible cerebral vasoconstriction syndrome (RCVS).</p>
+  <p><strong>MRI brain</strong> — progressive/subacute headache, posterior-fossa lesion, demyelination, pituitary/sellar lesion, intracranial infection/tumour, headache with persistent neuro abnormality, suspected low-pressure headache, new headache in stable pregnancy.</p>
+  <p><strong>MR/CT venography</strong> — pregnancy/puerperium with new severe headache, papilloedema, suspected cerebral venous sinus thrombosis, prothrombotic state, headache with seizures/focal deficit unexplained by arterial disease.</p>
+  <p>ACR red-flag scenarios warranting imaging: increasing severity, fever, neuro deficit, cancer, immunocompromise, onset after 50, post-traumatic headache.</p>`
+},
+{
+  title:"Lumbar Puncture &amp; CSF Interpretation",
+  topic:"migraine",
+  cats:["diagnostics"],
+  html:`<p><strong>Indications:</strong> suspected meningitis/encephalitis, suspected SAH despite non-diagnostic CT, suspected idiopathic intracranial hypertension (IIH), suspected spontaneous intracranial hypotension, inflammatory/malignant meningeal disease.</p>
+  <p><strong>Get imaging first if:</strong> papilloedema, focal neuro deficit, markedly altered consciousness, new-onset seizure, known intracranial mass, significant immunocompromise.</p>
+  <table class="mini"><tr><th>Condition</th><th>Opening pressure</th><th>Cells</th><th>Protein</th><th>Glucose</th></tr>
+  <tr><td>Bacterial meningitis</td><td>Usually raised</td><td>Neutrophils</td><td>Raised</td><td>Low</td></tr>
+  <tr><td>Viral meningitis</td><td>Normal/raised</td><td>Lymphocytes</td><td>Mildly raised</td><td>Usually normal</td></tr>
+  <tr><td>Tuberculous meningitis</td><td>Raised</td><td>Lymphocytes</td><td>Raised</td><td>Low</td></tr>
+  <tr><td>Subarachnoid haemorrhage</td><td>May be raised</td><td>RBCs/xanthochromia</td><td>Raised</td><td>Usually normal</td></tr>
+  <tr><td>IIH</td><td>Raised</td><td>Normal</td><td>Normal</td><td>Normal</td></tr>
+  </table>`
+},
+{
+  title:"Diagnostic Pathways — Thunderclap, Fever+Neck Stiffness, Papilloedema",
+  topic:"migraine",
+  cats:["diagnostics","flowchart"],
+  html:`<p><strong>Thunderclap headache:</strong></p>
+  <div class="flow-step">1. Stabilise ABC → 2. Urgent non-contrast CT → 3. If SAH suspicion remains: CT angiography and/or LP per timing/protocol → 4. Consider CVT, dissection, RCVS</div>
+  <p><strong>Headache with fever and neck stiffness:</strong></p>
+  <div class="flow-step">1. Blood cultures → 2. Start empirical antimicrobials promptly if bacterial meningitis suspected → 3. CT before LP only when indicated → 4. Analyse CSF when safe</div>
+  <p><strong>Papilloedema with headache:</strong></p>
+  <div class="flow-step">1. Urgent neuroimaging → 2. Venous imaging if CVT possible → 3. LP with opening pressure only after mass lesion excluded</div>`
+},
+{
+  title:"Emergency Evaluation — Red-Flag Presentations",
+  topic:"migraine",
+  cats:["emergency"],
+  html:`<ul>
+  <li>Thunderclap or "worst-ever" headache</li>
+  <li>New focal neurological deficit</li>
+  <li>Reduced consciousness, confusion, or agitation</li>
+  <li>Seizure</li>
+  <li>Fever with neck stiffness or purpuric rash</li>
+  <li>Papilloedema</li>
+  <li>Persistent vomiting with dehydration</li>
+  <li>Severe hypertension with end-organ injury</li>
+  <li>Acute painful red eye with visual loss</li>
+  <li>Headache following significant head trauma</li>
+  <li>Suspected carbon-monoxide poisoning</li>
+  <li>Pregnancy/puerperium with hypertension, seizure, or focal deficit</li>
+  <li>New headache in an immunocompromised patient</li>
+  <li>Suspected giant-cell arteritis with visual symptoms</li>
+  <li>Severe headache on anticoagulants</li>
+  <li>Intractable migraine or status migrainosus</li>
+  <li>Inability to maintain oral intake or manage safely at home</li>
+  </ul>`
+},
+{
+  title:"Hospital Admission Criteria in Headache",
+  topic:"migraine",
+  cats:["emergency"],
+  html:`<ul>
+  <li>Suspected subarachnoid or intracranial haemorrhage</li>
+  <li>Meningitis, encephalitis, or cerebral abscess</li>
+  <li>Cerebral venous sinus thrombosis</li>
+  <li>Stroke, arterial dissection, or RCVS</li>
+  <li>Raised intracranial pressure</li>
+  <li>New seizure or persistent altered sensorium</li>
+  <li>Hypertensive emergency, pre-eclampsia, or eclampsia</li>
+  <li>Severe dehydration or uncontrolled vomiting</li>
+  <li>Persistent focal neurological findings</li>
+  <li>Uncontrolled pain despite appropriate emergency treatment</li>
+  <li>Serious medical/social factors preventing safe discharge</li>
+  <li>Need for urgent specialist intervention or serial observation</li>
+  </ul>`
+},
+{
+  title:"ABCDE Primary Survey &amp; Supportive Care",
+  topic:"migraine",
+  cats:["emergency"],
+  html:`<p><strong>Airway:</strong> protect if consciousness impaired. <strong>Breathing:</strong> oxygen only if hypoxaemic. <strong>Circulation:</strong> IV access, assess perfusion. <strong>Disability:</strong> GCS, pupils, glucose, neuro deficits. <strong>Exposure:</strong> fever, rash, trauma, systemic illness signs.</p>
+  <p><strong>Monitoring:</strong> BP, pulse, respiratory rate, SpO₂, temperature, GCS/pupils, serial neuro exam, fluid input/output.</p>
+  <p><strong>Environment for migraine:</strong> quiet dark room, minimise strong odours/stimulation, allow rest, provide emesis basin.</p>
+  <p><strong>Fluids:</strong> isotonic IV fluids if dehydrated, hypotensive, unable to tolerate oral fluids, or repeatedly vomiting. Routine excess fluid does not itself treat migraine.</p>`
+},
+{
+  title:"Emergency Drug Treatment of Migraine",
+  topic:"migraine",
+  cats:["emergency","acute-therapy"],
+  html:`<p>Depending on contraindications/protocol: paracetamol or NSAID; metoclopramide or prochlorperazine for nausea/pain; subcutaneous sumatriptan; IV ketorolac or another parenteral NSAID; selected nerve blocks where available.</p>
+  <p>2025 AHS ED update supports IV prochlorperazine and selected occipital nerve block, plus IV ketorolac, IV metoclopramide, and subcutaneous sumatriptan. Advises <strong>against</strong> IV hydromorphone.</p>
+  <div class="warn-box" style="background:#a83a32;color:#fff;padding:10px 14px;border-radius:6px;">Avoid routine opioids — sedation, increased nausea, dependence, medication-overuse headache, and increased ED recurrence.</div>`
+},
+{
+  title:"Cause-Specific Emergency Actions",
+  topic:"migraine",
+  cats:["emergency"],
+  html:`<p><strong>Suspected meningitis:</strong> blood cultures, prompt empirical antimicrobials, add dexamethasone when indicated, don't delay treatment for imaging/LP in an unstable patient.</p>
+  <p><strong>Suspected SAH:</strong> urgent CT + neurosurgical/neurovascular consult, careful BP control, treat pain/vomiting, avoid delay from mislabelling as migraine.</p>
+  <p><strong>Suspected giant-cell arteritis:</strong> urgent corticosteroids if suspicion significant (especially with visual symptoms); arrange ESR, CRP, ophthalmology, specialist assessment.</p>
+  <p><strong>Pregnancy with headache + hypertension:</strong> consider pre-eclampsia/eclampsia, CVT, PRES, intracranial haemorrhage — manage urgently with obstetric + medical teams.</p>`
+},
+{
+  title:"Discharge Criteria After Acute Migraine",
+  topic:"migraine",
+  cats:["emergency"],
+  html:`<ul>
+  <li>Serious secondary causes reasonably excluded</li>
+  <li>Pain and nausea adequately controlled</li>
+  <li>Oral intake possible</li>
+  <li>Neurological exam normal or at baseline</li>
+  <li>Clear return precautions given</li>
+  <li>Acute-treatment and follow-up plan provided</li>
+  </ul>`
+},
+{
+  title:"Acute Therapy — Analgesics &amp; NSAIDs",
+  topic:"migraine",
+  cats:["acute-therapy"],
+  html:`<p><strong>Paracetamol:</strong> 1,000 mg PO at onset. Central analgesic, ↓prostaglandin synthesis. Hepatotoxic in overdose, worse with liver disease/alcohol.</p>
+  <p><strong>Aspirin:</strong> 900–1,000 mg PO. Irreversible COX inhibition. AEs: dyspepsia, GI bleed, bronchospasm, renal impairment, bleeding. Avoid in children with viral illness, PUD, bleeding risk, aspirin hypersensitivity.</p>
+  <p><strong>Ibuprofen:</strong> 400–600 mg PO. <strong>Naproxen:</strong> 500–550 mg PO. <strong>Diclofenac:</strong> 50–75 mg PO. <strong>Ketorolac:</strong> 15–30 mg IV or 30 mg IM (emergency dosing).</p>
+  <p><strong>NSAID AEs:</strong> gastritis/GI bleed, renal impairment, fluid retention, ↑BP, hypersensitivity/bronchospasm, cardiovascular risk. Caution in renal disease, PUD, anticoagulation, late pregnancy.</p>`
+},
+{
+  title:"Acute Therapy — Antiemetics",
+  topic:"migraine",
+  cats:["acute-therapy"],
+  html:`<p>Useful even without prominent nausea — dopamine antagonists may independently improve migraine pain.</p>
+  <p><strong>Metoclopramide:</strong> 10 mg PO or IV/IM. Dopamine D₂ antagonist; promotes gastric emptying. AEs: akathisia, acute dystonia, drowsiness, diarrhoea, rare tardive dyskinesia.</p>
+  <p><strong>Prochlorperazine:</strong> 5–10 mg PO or IV/IM. AEs: dystonia, akathisia, sedation, hypotension, QT prolongation, anticholinergic effects.</p>
+  <p><strong>Domperidone:</strong> 10 mg PO where approved. Fewer central extrapyramidal effects but can prolong QT — avoid in significant arrhythmic risk.</p>`
+},
+{
+  title:"Acute Therapy — Triptans",
+  topic:"migraine",
+  cats:["acute-therapy"],
+  html:`<p><strong>Mechanism:</strong> selective 5-HT₁B/1D agonists — reduce trigeminal neurotransmitter release, inhibit nociceptive transmission.</p>
+  <p><strong>Sumatriptan:</strong> 50–100 mg PO, 20 mg intranasal, or 6 mg SC.</p>
+  <p><strong>Others:</strong> Rizatriptan 5–10 mg PO; Zolmitriptan 2.5–5 mg PO/intranasal; Eletriptan 20–40 mg PO; Naratriptan 1–2.5 mg PO.</p>
+  <p><strong>AEs:</strong> tingling, flushing, dizziness, fatigue, chest/neck/limb heaviness, transient ↑BP.</p>
+  <p><strong>Contraindications:</strong> ischaemic heart disease, coronary vasospasm, prior stroke/TIA, peripheral arterial disease, uncontrolled hypertension, certain rare migraine syndromes, significant drug interactions. Never combine two triptans or a triptan + ergot within the restricted interval.</p>`
+},
+{
+  title:"Acute Therapy — Gepants &amp; Ditans",
+  topic:"migraine",
+  cats:["acute-therapy"],
+  html:`<p><strong>Gepants</strong> (ubrogepant, rimegepant, zavegepant) — CGRP receptor antagonists. Advantage: no direct vasoconstriction, useful when triptans fail/are contraindicated. AEs: nausea, somnolence, dry mouth, hypersensitivity, taste disturbance (nasal forms).</p>
+  <p><strong>Ditans — Lasmiditan:</strong> selective 5-HT₁F agonist, no vasoconstriction. AEs: dizziness, sedation, paraesthesia, impaired driving — jurisdiction-specific driving restrictions apply post-dose.</p>`
+},
+{
+  title:"Combination Therapy &amp; Medication-Overuse Headache",
+  topic:"migraine",
+  cats:["acute-therapy","pitfall"],
+  html:`<p>Combine a triptan + NSAID when triptan alone gives incomplete relief or headache recurs after initial improvement (commonly sumatriptan + naproxen). Add an antiemetic if nausea/delayed gastric emptying reduces oral absorption.</p>
+  <div class="warn-box" style="background:#a83a32;color:#fff;padding:10px 14px;border-radius:6px;">Medication overuse: triptans/opioids/combination analgesics on ≥10 days/month, or simple analgesics/NSAIDs on ≥15 days/month, used regularly for several months.</div>`
+},
+{
+  title:"Acute Treatment Ladder",
+  topic:"migraine",
+  cats:["acute-therapy"],
+  html:`<p><strong>Mild–moderate attack:</strong> paracetamol or NSAID → add antiemetic if required.</p>
+  <p><strong>Moderate–severe or analgesic failure:</strong> triptan → triptan + NSAID if required.</p>
+  <p><strong>Oral treatment not possible:</strong> nasal/subcutaneous triptan, parenteral NSAID, parenteral dopamine-antagonist antiemetic.</p>
+  <p><strong>Triptan contraindicated/ineffective:</strong> gepant or other non-vasoconstrictive option; neurology/headache-specialist review for recurrent difficult attacks.</p>`
+},
+{
+  title:"Prophylaxis — Indications &amp; Principles",
+  topic:"migraine",
+  cats:["prophylaxis"],
+  html:`<p><strong>Consider prevention when:</strong> ≥4 migraine/headache days per month, frequent disabling attacks despite acute therapy, contraindication to acute treatment, poor response/intolerable AEs, medication-overuse headache, prolonged/troublesome aura, patient preference, significant work/life interference.</p>
+  <p><strong>Principles:</strong> choose per comorbidity, start low + titrate gradually, set realistic goals, maintain a headache diary, allow 8–12 weeks trial at therapeutic dose. ~50% reduction in monthly migraine days = meaningful response. Continue successful treatment 6–12 months before considering withdrawal. Avoid abrupt cessation of beta-blockers/certain antiepileptics.</p>`
+},
+{
+  title:"Prophylaxis — Beta-Blockers &amp; Antiepileptics",
+  topic:"migraine",
+  cats:["prophylaxis"],
+  html:`<p><strong>Propranolol:</strong> start 20–40 mg 1–2×/day, titrate to 80–160 mg/day. Useful with tremor, performance anxiety, hypertension, tachycardia. AEs: fatigue, bradycardia, hypotension, exercise intolerance, sleep disturbance, sexual dysfunction. Avoid in asthma, bradycardia, heart block, decompensated HF.</p>
+  <p><strong>Topiramate:</strong> start 25 mg at night, titrate toward 50 mg BD. AEs: paraesthesia, cognitive slowing, weight loss, taste alteration, renal stones, metabolic acidosis, rare glaucoma. Significant fetal risk — needs pregnancy-prevention counselling.</p>
+  <p><strong>Valproate/divalproex:</strong> often 250 mg BD. AEs: weight gain, tremor, hair loss, thrombocytopenia, hepatotoxicity, pancreatitis, PCOS-like features. <strong>Strongly teratogenic</strong> — avoid in women who are/could become pregnant except under strict specialist safeguards.</p>`
+},
+{
+  title:"Prophylaxis — Antidepressants, Flunarizine &amp; Candesartan",
+  topic:"migraine",
+  cats:["prophylaxis"],
+  html:`<p><strong>Amitriptyline:</strong> start 10 mg at night, titrate to 25–50 mg at night. Useful with insomnia, TTH, neuropathic pain, depression. AEs: dry mouth, constipation, sedation, weight gain, urinary retention, orthostatic hypotension, QT/conduction issues.</p>
+  <p><strong>Venlafaxine:</strong> useful when migraine coexists with anxiety/depression. AEs: nausea, insomnia, hypertension, withdrawal symptoms if stopped abruptly.</p>
+  <p><strong>Flunarizine:</strong> 5–10 mg at night. AEs: sedation, weight gain, depression, extrapyramidal symptoms/parkinsonism. Avoid in significant depression or Parkinson disease.</p>
+  <p><strong>Candesartan:</strong> start 4–8 mg/day, titrate toward 16 mg/day. AEs: dizziness, hypotension, hyperkalaemia, renal deterioration. Contraindicated in pregnancy.</p>`
+},
+{
+  title:"Prophylaxis — CGRP Therapies &amp; OnabotulinumtoxinA",
+  topic:"migraine",
+  cats:["prophylaxis"],
+  html:`<p><strong>CGRP monoclonal antibodies:</strong> erenumab, fremanezumab, galcanezumab, eptinezumab — monthly/quarterly/IV depending on product.</p>
+  <p><strong>Preventive gepants:</strong> atogepant, rimegepant (approved schedules).</p>
+  <p>AEs vary by agent: injection-site reactions, constipation, nausea, hypersensitivity, possible BP concerns.</p>
+  <p><strong>OnabotulinumtoxinA:</strong> for chronic migraine (≥15 headache days/month with migraine features ≥8 days, &gt;3 months). Structured multi-site injection protocol. AEs: neck pain, local weakness, eyelid ptosis, injection-site discomfort.</p>`
+},
+{
+  title:"Prophylaxis by Comorbidity",
+  topic:"migraine",
+  cats:["prophylaxis"],
+  html:`<table class="mini"><tr><th>Situation</th><th>Useful option</th><th>Avoid/use cautiously</th></tr>
+  <tr><td>Obesity</td><td>Topiramate</td><td>Valproate, amitriptyline, flunarizine</td></tr>
+  <tr><td>Insomnia</td><td>Amitriptyline</td><td>Stimulating drugs</td></tr>
+  <tr><td>Asthma</td><td>Topiramate, candesartan</td><td>Non-selective beta-blocker</td></tr>
+  <tr><td>Hypertension</td><td>Propranolol or candesartan</td><td>Agents causing hypotension if BP low</td></tr>
+  <tr><td>Depression</td><td>Amitriptyline or venlafaxine</td><td>Flunarizine in significant depression</td></tr>
+  <tr><td>Renal stones</td><td>Alternative preventive</td><td>Topiramate</td></tr>
+  <tr><td>Pregnancy potential</td><td>Specialist-led selection</td><td>Valproate; topiramate/candesartan unsuitable</td></tr>
+  <tr><td>Chronic migraine</td><td>OnabotulinumtoxinA or CGRP therapy</td><td>Depends on contraindications</td></tr>
+  </table>`
+},
+{
+  title:"Monitoring Response to Prophylaxis",
+  topic:"migraine",
+  cats:["prophylaxis","monitoring"],
+  html:`<p>Record monthly: headache days, migraine days, severity, duration, acute-medication days, work/study days lost, adverse effects, patient-reported functional improvement.</p>`
+},
+{
+  title:"Counselling — Explaining Diagnosis &amp; Headache Diary",
+  topic:"migraine",
+  cats:["counselling"],
+  html:`<p><strong>Migraine:</strong> recurrent attacks — moderate/severe pain, pulsating, worse with activity, nausea/vomiting, photophobia/phonophobia, aura in some.</p>
+  <p><strong>Tension-type headache:</strong> usually bilateral, pressing/tightening, mild–moderate, not much aggravated by activity, no prominent vomiting, at most mild photo/phonophobia.</p>
+  <p>Reassure that a normal exam and typical recurring pattern support a primary headache diagnosis — never dismiss the pain as "only stress" or "imaginary."</p>
+  <p><strong>Headache diary:</strong> date/time, duration, severity, associated symptoms, menstrual relationship, triggers, medication taken, response, effect on work/school/sleep — used to spot patterns, not to enforce excessive avoidance.</p>`
+},
+{
+  title:"Counselling — SEEDS Lifestyle Framework",
+  topic:"migraine",
+  cats:["counselling"],
+  html:`<p><strong>S — Sleep:</strong> consistent sleep/wake time, avoid big weekend shifts, treat sleep apnoea, avoid sleep deprivation.</p>
+  <p><strong>E — Exercise:</strong> regular gradual aerobic exercise, start gently if inactive, stay hydrated, avoid sudden excessive exertion.</p>
+  <p><strong>E — Eat regularly:</strong> avoid skipping meals, regular timing, identify reproducible triggers rather than overly restrictive diets.</p>
+  <p><strong>D — Diary:</strong> record frequency, medication use, disability; review at follow-up.</p>
+  <p><strong>S — Stress management:</strong> relaxation breathing, mindfulness, CBT, yoga, biofeedback, scheduled breaks, treat anxiety/depression where present.</p>
+  <p>Also: maintain hydration, avoid large caffeine fluctuations (both excess and sudden withdrawal can trigger headache).</p>`
+},
+{
+  title:"Counselling — Triggers &amp; Safe Acute-Medication Use",
+  topic:"migraine",
+  cats:["counselling"],
+  html:`<p><strong>Common triggers:</strong> sleep deprivation, fasting, dehydration, stress or post-stress relaxation, menstruation, bright light, strong odours, alcohol, excess caffeine, unaccustomed exertion. Teach the difference between a trigger and a prodrome symptom (e.g. food craving may be part of the attack, not its cause).</p>
+  <p><strong>Acute medication counselling:</strong> keep medicine accessible, take early in the headache phase, use full correct dose, use non-oral route if vomiting, avoid escalating doses without review, record medication days, avoid opioids barring exceptional specialist indication.</p>
+  <p>Discuss medication-overuse headache risk directly with patients using acute treatments (NICE guidance). Consider the diagnosis when headache reaches ≥15 days/month with regular acute-medication overuse for &gt;3 months. Management: education, planned withdrawal/restriction, rescue strategy, consider preventive treatment, follow-up during withdrawal.</p>`
+},
+{
+  title:"Counselling — Explaining Prophylaxis &amp; TTH Advice",
+  topic:"migraine",
+  cats:["counselling"],
+  html:`<p><strong>Discuss prevention when:</strong> attacks are frequent/disabling, acute medication is ineffective/unsuitable/overused, or attacks are prolonged/difficult.</p>
+  <p><strong>Key points:</strong> taken regularly (not just during pain), benefit is gradual, dose increased slowly, goal is improvement not necessarily elimination, continue the diary, report AEs, don't stop some drugs suddenly, review pregnancy plans before starting/continuing.</p>
+  <p><strong>Tension-type headache:</strong> emphasise posture/ergonomics, regular movement/stretching, sleep regularity, stress management, limiting frequent analgesic use, addressing jaw clenching/TMJ symptoms, physiotherapy where relevant. Amitriptyline may be considered for chronic TTH after assessing contraindications.</p>`
+},
+{
+  title:"Safety-Net Advice for Headache Patients",
+  topic:"migraine",
+  cats:["counselling","emergency"],
+  html:`<p>Seek urgent medical attention for:</p>
+  <ul>
+  <li>Sudden maximal-intensity headache</li>
+  <li>New weakness, numbness, or speech difficulty</li>
+  <li>Confusion, fainting, or seizure</li>
+  <li>Fever with neck stiffness</li>
+  <li>Persistent visual loss or double vision</li>
+  <li>Headache after major trauma</li>
+  <li>New headache during pregnancy or after delivery</li>
+  <li>Rapidly progressive or clearly changed headache</li>
+  <li>Persistent vomiting</li>
+  <li>Headache associated with a painful red eye</li>
+  </ul>`
+}
+];
+
+const resultsEl = document.getElementById('results');
+const noResultsEl = document.getElementById('no-results');
+const searchEl = document.getElementById('search');
+const countNum = document.getElementById('count-num');
+const totalNum = document.getElementById('total-num');
+const homeScreen = document.getElementById('homeScreen');
+const referenceView = document.getElementById('referenceView');
+const topicTitle = document.getElementById('topicTitle');
+const topicSub = document.getElementById('topicSub');
+const topicLabel = document.getElementById('topicLabel');
+let activeFilter = 'all';
+let activeTopic = 'dengue';
+
+function getTopic(item){ return item.topic || 'dengue'; }
+
+const topicInfo = {
+  dengue:{
+    title:'Dengue Shock Management',
+    sub:'Searchable field reference — fluid protocols, case studies, and pitfalls from the WHO/Stanley Medical College series.',
+    label:'Dengue Shock',
+    placeholder:"Search e.g. 'hematocrit', 'colloid', 'IBW', 'pulse pressure'…"
+  },
+  migraine:{
+    title:'Migraine &amp; Headache',
+    sub:'Searchable field reference — diagnostics, emergency care, acute therapy, prophylaxis, and patient counselling from the undergraduate lecture series.',
+    label:'Migraine & Headache',
+    placeholder:"Search e.g. 'triptan', 'SNNOOP10', 'topiramate', 'SEEDS'…"
+  }
+};
+
+// set home screen counts once
+document.getElementById('dengueCount').textContent = data.filter(d=>getTopic(d)==='dengue').length + ' entries';
+document.getElementById('migraineCount').textContent = data.filter(d=>getTopic(d)==='migraine').length + ' entries';
+
+function openTopic(topic){
+  activeTopic = topic;
+  activeFilter = 'all';
+  searchEl.value = '';
+
+  const info = topicInfo[topic];
+  topicTitle.innerHTML = info.title;
+  topicSub.textContent = info.sub;
+  topicLabel.textContent = info.label;
+  searchEl.placeholder = info.placeholder;
+
+  document.querySelectorAll('#chips .chip').forEach(c=>{
+    c.classList.remove('active');
+    if(c.dataset.filter==='all'){
+      c.classList.add('active');
+      c.style.display = '';
+    } else {
+      c.style.display = (c.dataset.topic===topic) ? '' : 'none';
+    }
+  });
+
+  homeScreen.style.display = 'none';
+  referenceView.style.display = 'block';
+  window.scrollTo(0,0);
+  render();
+  try{ localStorage.setItem('lastTopic', topic); }catch(e){}
+}
+
+function goHome(){
+  homeScreen.style.display = 'flex';
+  referenceView.style.display = 'none';
+  window.scrollTo(0,0);
+  try{ localStorage.removeItem('lastTopic'); }catch(e){}
+}
+
+function catClass(cats){
+  if(cats.includes('pitfall')) return 'cat-pitfall';
+  if(cats.includes('case')) return 'cat-case';
+  if(cats.includes('emergency')) return 'cat-migraine-emergency';
+  return '';
+}
+function primaryTag(cats){
+  const order = ['pitfall','case','flowchart','fluids','monitoring','complications','emergency','diagnostics','acute-therapy','prophylaxis','counselling'];
+  const found = order.find(c=>cats.includes(c));
+  const labels = {pitfall:'Pitfall',case:'Case Study',flowchart:'Flowchart',fluids:'Fluids & Transfusion',monitoring:'Monitoring & Goals',complications:'Complications',emergency:'Emergency Care',diagnostics:'Diagnostics','acute-therapy':'Acute Therapy',prophylaxis:'Prophylaxis',counselling:'Counselling'};
+  return labels[found] || 'Reference';
+}
+
+function render(){
+  resultsEl.innerHTML = '';
+  const q = searchEl.value.trim().toLowerCase();
+  let shown = 0;
+
+  data.forEach(item=>{
+    const topic = getTopic(item);
+    if(topic !== activeTopic) return;
+    const matchesFilter = activeFilter==='all' || item.cats.includes(activeFilter);
+    const haystack = (item.title + ' ' + item.html).toLowerCase().replace(/<[^>]*>/g,' ');
+    const matchesSearch = q==='' || haystack.includes(q);
+
+    if(matchesFilter && matchesSearch){
+      shown++;
+      const card = document.createElement('div');
+      card.className = 'card ' + catClass(item.cats);
+      let title = item.title;
+      let body = item.html;
+      if(q){
+        const re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')','ig');
+        title = title.replace(re, '<mark>$1</mark>');
+        body = body.replace(/(>[^<]*)/g, (m)=> m.replace(re, '<mark>$1</mark>'));
+      }
+      card.innerHTML = `<div class="card-top"><h2>${title}</h2><span class="tag">${primaryTag(item.cats)}</span></div>
+      <div class="card-body">${body}</div>`;
+      resultsEl.appendChild(card);
+    }
+  });
+
+  countNum.textContent = shown;
+  totalNum.textContent = data.filter(d=>getTopic(d)===activeTopic).length;
+  noResultsEl.style.display = shown===0 ? 'block' : 'none';
+}
+
+searchEl.addEventListener('input', render);
+
+document.getElementById('chips').addEventListener('click', (e)=>{
+  const btn = e.target.closest('.chip');
+  if(!btn || btn.style.display==='none') return;
+  document.querySelectorAll('#chips .chip').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter = btn.dataset.filter;
+  render();
+});
+
+document.addEventListener('keydown', (e)=>{
+  if(e.key==='/' && document.activeElement !== searchEl && referenceView.style.display==='block'){
+    e.preventDefault();
+    searchEl.focus();
+  }
+  if(e.key==='Escape' && referenceView.style.display==='block'){
+    goHome();
+  }
+});
+
+// restore last-viewed topic on reload, otherwise show home screen
+(function(){
+  let saved = null;
+  try{ saved = localStorage.getItem('lastTopic'); }catch(e){}
+  if(saved === 'dengue' || saved === 'migraine'){
+    openTopic(saved);
+  }
+})();
+</script>
+</body>
+</html>
